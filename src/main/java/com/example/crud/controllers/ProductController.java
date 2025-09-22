@@ -1,6 +1,7 @@
 package com.example.crud.controllers;
 
 import com.example.crud.domain.product.Product;
+import com.example.crud.domain.product.ProductRequestDTO;
 import com.example.crud.domain.product.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ProblemDetail;
@@ -24,7 +25,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> registerProduct(@RequestBody Product data){
+    public ResponseEntity<Product> registerProduct(@RequestBody ProductRequestDTO data){
         Product newProduct = productService.createProduct(data);
         return ResponseEntity.ok(newProduct);
     }
