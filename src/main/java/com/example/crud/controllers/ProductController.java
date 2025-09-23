@@ -3,6 +3,7 @@ package com.example.crud.controllers;
 import com.example.crud.domain.product.Product;
 import com.example.crud.domain.product.ProductRequestDTO;
 import com.example.crud.domain.product.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +26,13 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> registerProduct(@RequestBody ProductRequestDTO data){
+    public ResponseEntity<Product> registerProduct(@Valid @RequestBody ProductRequestDTO data){
         Product newProduct = productService.createProduct(data);
         return ResponseEntity.ok(newProduct);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable String id, @RequestBody ProductRequestDTO data){
+    public ResponseEntity<Product> updateProduct(@PathVariable String id, @Valid @RequestBody ProductRequestDTO data){
         Product updatedProduct = productService.updateProduct(id, data);
         return ResponseEntity.ok(updatedProduct);
     }
