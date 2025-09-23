@@ -19,4 +19,9 @@ public class Product {
     private String name;
 
     private Integer price;
+
+    public Product(ProductRequestDTO requestDTO){
+        this.name = requestDTO.name();
+        this.price = requestDTO.price();
+    }
 }
