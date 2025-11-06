@@ -1,4 +1,4 @@
-# Product CRUD API with Spring Boot
+# Product Catalog API
 
 A complete RESTful API for managing a product catalog, developed with Java and Spring Boot.
 
